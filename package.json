@@ -1,0 +1,26 @@
+{
+  "name": "atividade1ppiads",
+  "version": "1.0.0",
+  "description": "Primeira Aula e Atividade  ao vivo PPI ADS",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/FelipeAriki/atividade1ppiads.git)"
+  },
+  "keywords": [
+    "aprendendo",
+    "node",
+    "http"
+  ],
+  "author": "Felipe Ariki",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3"
+  }
+}

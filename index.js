@@ -4,7 +4,7 @@ import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
 
 //o ip 0.0.0.0 significa todas as interfaces disponíveis
-const host = '0.0.0.0';
+const host = 'localhost';
 //Você precisará validar qual porta foi disponibilizada para o seu projeto no aprender
 const porta = '3000';
 
@@ -31,6 +31,6 @@ app.use('/login', rotaLogin);
 app.use(autenticar, express.static('./protegido'));
 
 
-app.listen((host, porta, ()=>{
+app.listen(porta, host, ()=>{
     console.log('Servidor ouvindo no endereço '+host+':'+porta);
-}));
+});

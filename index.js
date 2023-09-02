@@ -4,9 +4,9 @@ import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
 
 //o ip 0.0.0.0 significa todas as interfaces disponíveis
-const host = 'localhost';
+const host = '0.0.0.0';
 //Você precisará validar qual porta foi disponibilizada para o seu projeto no aprender
-const porta = '3000';
+const porta = '3225';
 
 const app = express();
 

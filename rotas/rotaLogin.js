@@ -4,14 +4,14 @@ const rotaLogin = Router();
 
 rotaLogin
 .get('/', (req, res)=>{
-    res.redirect('/login.html');
+    res.redirect('/aluno25-ppiadsead/login.html');
 })
 .post('/', (req, res)=>{
     const usuario = req.body.usuario;
     const senha = req.body.senha;
     if(usuario === 'Felipe' && senha === '123'){
         req.session.usuarioLogado = true;
-        res.redirect('/cadastroCliente.html');
+        res.redirect('/aluno25-ppiadsead/cadastroCliente.html');
     }
     else{
         res.send(`

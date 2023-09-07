@@ -3,10 +3,10 @@ import { Router } from "express";
 const rotaLogin = Router();
 
 rotaLogin
-.get('/', (req, res)=>{
+.get('/aluno25-ppiadsead', (req, res)=>{
     res.redirect('/login.html');
 })
-.post('/', (req, res)=>{
+.post('/aluno25-ppiadsead', (req, res)=>{
     const usuario = req.body.usuario;
     const senha = req.body.senha;
     if(usuario === 'Felipe' && senha === '123'){

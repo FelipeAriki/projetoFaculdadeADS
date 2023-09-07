@@ -16,7 +16,7 @@ rotaLogin
     else{
         res.send(`
         <p>Falha no Login!</p>
-        <button onclick='history.back'>
+        <button onclick='history.back()'>
             Tentar novamente
         </button>
         `);

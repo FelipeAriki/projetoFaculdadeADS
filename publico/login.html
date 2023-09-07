@@ -7,65 +7,57 @@
         <title>Faça login no sistema</title>
     </head>
     <body>
-        <br/>
-        <div class="container w-50">
-            <h1>Login no Sistema</h1>
-            <form method="POST" action="/login" class="row g-3 needs-validation" novalidate>
-                <div class="row pt-4">
-                    <div class="col-md-4">
-                        <label for="validationCustom01" class="form-label">Usuário</label>
-                        <input type="text" class="form-control" id="validationCustom01" name="usuario" value="" required>
-                        <div class="valid-feedback">
-                            OK!
-                        </div>
-                        <div class="invalid-feedback">
-                            Por favor, informe o nome do usuário!
-                        </div>
-                    </div>
-                </div>
-                <div class="row pt-4">
-                  <div class="col-md-4">
-                    <label for="validationCustomUsername" class="form-label">Senha:</label>
-                    <div class="input-group has-validation">
-                      <span class="input-group-text" id="inputGroupPrepend">#</span>
-                      <input type="password" class="form-control" id="validationCustomUsername" name="senha" aria-describedby="inputGroupPrepend" required>
-                      <div class="valid-feedback">
-                        OK!
+
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md-6">
+                  <div class="card mt-5">
+                      <div class="card-header">
+                          <h3 class="text-center">Seguro Ágil</h3>
                       </div>
-                      <div class="invalid-feedback">
-                        Por favor, informe a senha.
+                      <div class="card-body">
+                          <form method="POST" action="/login" class="row g-3 needs-validation" novalidate>
+                              <div class="mb-3">
+                                  <label for="text" class="form-label">Nome do Usuário</label>
+                                  <input type="text" name="usuario" class="form-control" id="usuario" placeholder="Seu usuário">
+                              </div>
+                              <div class="mb-3">
+                                  <label for="senha" class="form-label">Senha</label>
+                                  <input type="password" name="senha" class="form-control" id="senha" placeholder="Sua senha">
+                              </div>
+                              <div class="d-grid">
+                                  <button type="submit" class="btn btn-primary">Entrar</button>
+                              </div>
+                          </form>
                       </div>
-                    </div>
+                      <div class="card-footer text-center">
+                          Não tem uma conta? <a href="#">Registre-se</a>
+                      </div>
                   </div>
-                </div>
-                <div class="row pt-2">
-                    <div class="col-12">
-                        <button class="btn btn-primary" type="submit">Login</button>
-                        <button class="btn btn-secondary" type="button" onclick="history.back()">Voltar</button>
-                    </div>
-                </div>
-            </form>
-            <script>
-                (() => {
-  'use strict'
+              </div>
+          </div>
+      </div>
+      
+      <script>
+          (() => {
+          'use strict'
 
-  // Fetch all the forms we want to apply custom Bootstrap validation styles to
-  const forms = document.querySelectorAll('.needs-validation')
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          const forms = document.querySelectorAll('.needs-validation')
 
-  // Loop over them and prevent submission
-  Array.from(forms).forEach(form => {
-    form.addEventListener('submit', event => {
-      if (!form.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
-      }
+          // Loop over them and prevent submission
+          Array.from(forms).forEach(form => {
+          form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+          }
 
-      form.classList.add('was-validated')
-    }, false)
-  })
-})()
-            </script>
-        </div>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+          form.classList.add('was-validated')
+          }, false)
+          })
+          })()
+        </script>
+      </body>
+    
 </html>

@@ -28,13 +28,13 @@ app.use(express.urlencoded({
 //configurar a aplicação para que ela publique tudo o que estiver na pasta público
 //assegure que o conteúdo seja estático: páginas html, arquivos de script
 app.use(express.static('./publico'));
-app.use('/login', rotaLogin);
 app.use('/clientes', (req, res)=>{
     const cliente = new Cliente();
     cliente.consultar('').then((listaClientes)=>{
         res.json(listaClientes);
     });
 });
+app.use('/login', rotaLogin);
 app.use(autenticar, express.static('./protegido'));
 
 

@@ -36,7 +36,7 @@ export default class ClienteDAO{
                 const valores = [cliente.cpf];
     
                 await conexao.query(sql, valores);
-                global.poolConexoes.releaseConnection(conexao);
+
             }                
         }
     }
@@ -44,7 +44,7 @@ export default class ClienteDAO{
     async consultar(filtro){
         const conexao = await conectar();
         if(!filtro) filtro = "";
-        
+
         const sql = "SELECT * FROM cliente WHERE nome like ?";
         const valores = ['%'+ filtro +'%'];
         const [rows] = await conexao.query(sql, valores);
@@ -55,7 +55,7 @@ export default class ClienteDAO{
             row['bairro'], row['cidade'], row['uf'], row['telefone'], row['email']);
             listaClientes.push(cliente);
         }
-        global.poolConexoes.releaseConnection(conexao);
+        
         return listaClientes;
     }
 

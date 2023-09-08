@@ -2,6 +2,7 @@ import express from 'express';
 import autenticar from './seguranca/Autenticacao.js';
 import session from 'express-session';
 import rotaLogin from './rotas/rotaLogin.js';
+import Cliente from './Backend/Modelo/Cliente.js';
 
 //o ip 0.0.0.0 significa todas as interfaces disponíveis
 const host = '0.0.0.0';
@@ -27,8 +28,15 @@ app.use(express.urlencoded({
 //configurar a aplicação para que ela publique tudo o que estiver na pasta público
 //assegure que o conteúdo seja estático: páginas html, arquivos de script
 app.use(express.static('./publico'));
-app.use('/login', rotaLogin);
+app.use('/aluno25-ppiadsead/login', rotaLogin);
+app.use('/clientes', (req, res)=>{
+    const cliente = new Cliente();
+    cliente.consultar('').then((listaClientes)=>{
+        res.json(listaClientes);
+    });
+});
 app.use(autenticar, express.static('./protegido'));
+
 
 
 app.listen(porta, host, ()=>{

@@ -43,7 +43,6 @@ export default class ClienteDAO{
 
     async consultar(filtro){
         const conexao = await conectar();
-        if(!filtro) filtro = "";
 
         const sql = "SELECT * FROM cliente WHERE nome like ?";
         const valores = ['%'+ filtro +'%'];

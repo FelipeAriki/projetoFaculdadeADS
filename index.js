@@ -30,7 +30,7 @@ app.use(express.urlencoded({
 app.use(express.static('./publico'));
 app.use('/clientes', (req, res)=>{
     const cliente = new Cliente();
-    cliente.consultar('').then((listaClientes)=>{
+    cliente.consultar("").then((listaClientes)=>{
         res.json(listaClientes);
     });
 });

@@ -19,7 +19,7 @@ export default class ClienteDAO{
                 if(clienteAux !== null){
                     const conexao = await conectar();
                     const sql = "UPDATE cliente set nome = ?, sobrenome = ?, endereco = ?, bairro = ?, cidade = ?, uf= ?, telefone = ?, email = ? WHERE cpf = ?";
-                    const valores = [cliente.nome, cliente.sobrenome, cliente.cpf, cliente.endereco, cliente.bairro, cliente.cidade, cliente.uf, cliente.telefone, cliente.email];
+                    const valores = [cliente.nome, cliente.sobrenome, cliente.endereco, cliente.bairro, cliente.cidade, cliente.uf, cliente.telefone, cliente.email, cliente.cpf];
         
                     await conexao.query(sql, valores);
                     global.poolConexoes.releaseConnection(conexao);

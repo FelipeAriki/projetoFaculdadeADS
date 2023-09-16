@@ -114,7 +114,7 @@ export default class Cliente{
     }
     async remover(){
         const clienteDAO = new ClienteDAO();
-        await clienteDAO.remover(this);
+        await clienteDAO.excluir(this);
     }
     async consultar(filtro){
         const clienteDAO = new ClienteDAO();

@@ -1,8 +1,8 @@
 import express from 'express';
-import autenticar from './seguranca/Autenticacao.js';
 import session from 'express-session';
+import autenticar from './seguranca/Autenticacao.js';
 import rotaLogin from './rotas/rotaLogin.js';
-import Cliente from './Backend/Modelo/Cliente.js';
+import rotaCliente from './Backend/Rotas/rotaCliente.js';
 
 //o ip 0.0.0.0 significa todas as interfaces disponíveis
 const host = '0.0.0.0';
@@ -10,6 +10,7 @@ const host = '0.0.0.0';
 const porta = '3225';
 
 const app = express();
+app.use(express.json());
 
 //criação de sessão para memorizar a origem das requisições
 app.use(session({
@@ -28,16 +29,9 @@ app.use(express.urlencoded({
 //configurar a aplicação para que ela publique tudo o que estiver na pasta público
 //assegure que o conteúdo seja estático: páginas html, arquivos de script
 app.use(express.static('./publico'));
-app.use('/clientes', (req, res)=>{
-    const cliente = new Cliente();
-    cliente.consultar("").then((listaClientes)=>{
-        res.json(listaClientes);
-    });
-});
+app.use('/clientes', rotaCliente);
 app.use('/login', rotaLogin);
 app.use(autenticar, express.static('./protegido'));
-
-
 
 app.listen(porta, host, ()=>{
     console.log('Servidor ouvindo no endereço '+host+':'+porta);

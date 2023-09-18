@@ -8,7 +8,7 @@ rotaCliente
 .get('/:termo', clienteCtrl.consultar)
 .post('/', clienteCtrl.gravar)
 .delete('/', clienteCtrl.remover)
-.put('/', clienteCtrl.atualizar);
-//.get('/:cpf', clienteCtrl.consultarPeloCPF)
+.put('/', clienteCtrl.atualizar)
+.post('/consultarCPF', clienteCtrl.consultarPeloCPF);
 
 export default rotaCliente;

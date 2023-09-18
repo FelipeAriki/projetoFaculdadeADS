@@ -300,7 +300,11 @@ export default class ClienteCtrl{
             const cliente = new Cliente();
             cliente.consultarClientePorCpf(cpf)
             .then((cliente)=>{
-                res.status(200).json(cliente);
+                let listaCliente = []
+                for(let i = 0; i<cliente.length; i++)
+                listaCliente.push(cliente[i].toJson());
+                
+                res.status(200).json(listaCliente);
             })
             .catch((error)=>{
                 res.status(500).json({

@@ -270,7 +270,11 @@ export default class ClienteCtrl{
 
             cliente.consultar(termo)
             .then((clientes)=>{
-                res.status(200).json(clientes);
+                let listaClientes = []
+                for(let i = 0; i<clientes.length; i++)
+                    listaClientes.push(clientes[i].toJson());
+                
+                res.status(200).json(listaClientes);
             })
             .catch((error)=>{
                 res.status(500).json({
@@ -290,7 +294,7 @@ export default class ClienteCtrl{
     consultarPeloCPF(req, res){
         res.type("application/json");
         let cpf = req.body.cpf;
-        //let cpf = req.params['cpf'];
+        //let cpf = req.params['cpf']; PARA O MÉTODO GET
 
         if(req.method === "POST" && req.is('application/json')){
             const cliente = new Cliente();

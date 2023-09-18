@@ -6,7 +6,7 @@ export default async function conectar(){
         return await global.poolConexoes.getConnection();
     else{
         global.poolConexoes = mysql.createPool({
-            host: 'localhost',
+            host: '129.146.68.51',
             port: 3306,
             database: 'backendaluno25-ppiadsead',
             user: 'aluno25-ppiadsead',

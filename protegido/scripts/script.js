@@ -1,9 +1,44 @@
+document.querySelector("#btnCadastrar").addEventListener("click", ()=>{
+    const form = document.getElementById('formCliente');
+    if(form.checkValidity()){
+        const cliente = obterClienteFormulario();
+        cadastrarCliente(cliente);
+        limparFormulario();
+    }
+    form.classList.add('was-validated');
+});
+
 document.querySelector("#btnVoltar").addEventListener("click", ()=>{
     history.back();
 });
 
 window.onload = ()=>{
     obterClientes();
+}
+
+function limparFormulario(){
+    document.querySelector("#cpf").value = '';
+    document.querySelector("#nome").value = '';
+    document.querySelector("#sobrenome").value = '';
+    document.querySelector("#endereco").value = '';
+    document.querySelector("#bairro").value = '';
+    document.querySelector("#cidade").value = '';
+    document.querySelector("#uf").value = '';
+    document.querySelector("#telefone").value = '';
+    document.querySelector("#email").value = '';
+}
+function obterClienteFormulario(){
+    return{
+        cpf:document.querySelector("#cpf").value,
+        nome:document.querySelector("#nome").value,
+        sobrenome:document.querySelector("#sobrenome").value,
+        endereco:document.querySelector("#endereco").value,
+        bairro:document.querySelector("#bairro").value,
+        cidade:document.querySelector("#cidade").value,
+        uf:document.querySelector("#uf").value,
+        telefone:document.querySelector("#telefone").value,
+        email:document.querySelector("#email").value
+    }
 }
 function obterClientes(){
     fetch('https://129.146.68.51/aluno25-ppiadsead/clientes', {method: 'GET'})
@@ -22,7 +57,7 @@ function obterClientes(){
         mostrarMensagem('Não foi possível obter os clientes. Erro: ' + error.message, 'danger');
     });
 }
-function cadastrarClientes(cliente){
+function cadastrarCliente(cliente){
     fetch('https://129.146.68.51/aluno25-ppiadsead/clientes',
     {
         method: 'POST',

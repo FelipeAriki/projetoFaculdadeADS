@@ -18,42 +18,69 @@
                             <form  id="formCliente" method="POST" action="#" class="row g-3 needs-validation" novalidate>
                                 <div class="mb-3">
                                     <label for="nome" class="form-label">Nome</label>
-                                    <input type="text" class="form-control" id="nome" placeholder="Seu nome">
+                                    <input type="text" class="form-control" id="nome" placeholder="Seu nome" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o nome do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="sobrenome" class="form-label">Sobrenome</label>
-                                    <input type="text" class="form-control" id="sobrenome" placeholder="Seu sobrenome">
+                                    <input type="text" class="form-control" id="sobrenome" placeholder="Seu sobrenome" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o sobrenome do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cpf" class="form-label">CPF</label>
-                                    <input type="text" class="form-control" id="cpf" placeholder="Seu CPF">
+                                    <input type="text" class="form-control" id="cpf" placeholder="Seu CPF" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o CPF do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="endereco" class="form-label">Endereço</label>
-                                    <input type="text" class="form-control" id="endereco" placeholder="Seu endereço">
+                                    <input type="text" class="form-control" id="endereco" placeholder="Seu endereço" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o endereço do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="bairro" class="form-label">Bairro</label>
-                                    <input type="text" class="form-control" id="bairro" placeholder="Seu bairro">
+                                    <input type="text" class="form-control" id="bairro" placeholder="Seu bairro" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o bairro do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="cidade" class="form-label">Cidade</label>
-                                    <input type="text" class="form-control" id="cidade" placeholder="Sua cidade">
+                                    <input type="text" class="form-control" id="cidade" placeholder="Sua cidade" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe a cidade do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="uf" class="form-label">UF</label>
-                                    <input type="text" class="form-control" id="uf" placeholder="UF">
+                                    <input type="text" class="form-control" id="uf" placeholder="UF" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o UF do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="telefone" class="form-label">Telefone</label>
-                                    <input type="text" class="form-control" id="telefone" placeholder="Seu telefone">
+                                    <input type="text" class="form-control" id="telefone" placeholder="Seu telefone" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o telefone do cliente!
+                                    </div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label">Email</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Seu email">
+                                    <input type="email" class="form-control" id="email" placeholder="Seu email" required>
+                                    <div class="invalid-feedback">
+                                        Por favor, informe o e-mail do cliente!
+                                    </div>
                                 </div>
                                 <div class="d-grid col-md-6">
-                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
+                                    <button type="button" class="btn btn-primary" id="btnCadastrar">Cadastrar</button>
                                 </div>
                                 <div class="d-grid col-md-6">
                                     <button id="btnVoltar" type="button" class="btn btn-danger">Voltar</button>

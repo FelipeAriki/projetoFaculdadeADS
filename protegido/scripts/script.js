@@ -1,5 +1,6 @@
-document.querySelector("#btnCadastrar").addEventListener("click", ()=>{
-    const form = document.getElementById('formCliente');
+const form = document.getElementById('formCliente');
+
+document.querySelector("#btnCadastrar").addEventListener("click", ()=>{    
     if(form.checkValidity()){
         const cliente = obterClienteFormulario();
         cadastrarCliente(cliente);

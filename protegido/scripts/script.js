@@ -26,6 +26,7 @@ function limparFormulario(){
     document.querySelector("#uf").value = '';
     document.querySelector("#telefone").value = '';
     document.querySelector("#email").value = '';
+    form.classList.remove('was-validated');
 }
 function obterClienteFormulario(){
     return{

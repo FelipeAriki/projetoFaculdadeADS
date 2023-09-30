@@ -1,5 +1,8 @@
 const form = document.getElementById('formCliente');
-
+window.onload = ()=>{
+    obterClientes();
+}
+//Evento nos botões
 document.querySelector("#btnCadastrar").addEventListener("click", ()=>{    
     if(form.checkValidity()){
         const cliente = obterClienteFormulario();
@@ -14,10 +17,13 @@ document.querySelector("#btnVoltar").addEventListener("click", ()=>{
     history.back();
 });
 
-window.onload = ()=>{
-    obterClientes();
-}
-
+document.querySelector("#btnEditar").addEventListener("click", ()=>{
+    alert("Editando o cliente...")
+});
+document.querySelector("#btnExcluir").addEventListener("click", ()=>{
+    alert("Excluindo o cliente...")
+});
+//Funções
 function limparFormulario(){
     document.querySelector("#cpf").value = '';
     document.querySelector("#nome").value = '';
@@ -31,17 +37,32 @@ function limparFormulario(){
     form.classList.remove('was-validated');
 }
 function obterClienteFormulario(){
-    return{
-        cpf:document.querySelector("#cpf").value,
-        nome:document.querySelector("#nome").value,
-        sobrenome:document.querySelector("#sobrenome").value,
-        endereco:document.querySelector("#endereco").value,
-        bairro:document.querySelector("#bairro").value,
-        cidade:document.querySelector("#cidade").value,
-        uf:document.querySelector("#uf").value,
-        telefone:document.querySelector("#telefone").value,
-        email:document.querySelector("#email").value
+    let cpf = document.querySelector("#cpf").value;
+    let nome = document.querySelector("#nome").value;
+    let sobrenome = document.querySelector("#sobrenome").value;
+    let endereco = document.querySelector("#endereco").value;
+    let bairro = document.querySelector("#bairro").value;
+    let cidade = document.querySelector("#cidade").value;
+    let uf = document.querySelector("#uf").value;
+    let telefone = document.querySelector("#telefone").value;
+    let email = document.querySelector("#email").value;
+
+    if(cpf && nome && sobrenome && endereco && bairro && cidade && uf && telefone && email)
+    {
+        return{
+            cpf: cpf,
+            nome: nome,
+            sobrenome: sobrenome,
+            endereco: endereco,
+            bairro: bairro,
+            cidade: cidade,
+            uf: uf,
+            telefone: telefone,
+            email: email
+        }
     }
+    else
+        return undefined;
 }
 function obterClientes(){
     fetch('https://129.146.68.51/aluno25-ppiadsead/clientes', {method: 'GET'})
@@ -115,6 +136,7 @@ function mostrarClientes(listaClientes){
                                         <th>Estado</th>
                                         <th>Telefone</th>
                                         <th>E-mail</th>
+                                        <th>Ações</th>
                                     </tr>`;
         tabela.appendChild(cabecalhoTabela);
 
@@ -128,7 +150,9 @@ function mostrarClientes(listaClientes){
                                     <td>${cliente.cidade}</td>
                                     <td>${cliente.uf}</td>
                                     <td>${cliente.telefone}</td>
-                                    <td>${cliente.email}</td>`;
+                                    <td>${cliente.email}</td>
+                                    <td><button type="button" id="btnEditar">Editar</button></td>
+                                    <td><button type="button" id="btnExcluir">Excluir</button></td>`;
             corpoTabela.appendChild(linhaTabela);
         }
         tabela.appendChild(corpoTabela);

@@ -205,6 +205,14 @@ function prepararTela(cpf = "", nome = "", sobrenome = "", endereco = "", bairro
     }
     else {//cadastrar
         document.querySelector("#cpf").disabled = false;
+        document.querySelector("#nome").disabled = false;
+        document.querySelector("#sobrenome").disabled = false;
+        document.querySelector("#endereco").disabled = false;
+        document.querySelector("#bairro").disabled = false;
+        document.querySelector("#cidade").disabled = false;
+        document.querySelector("#uf").disabled = false;
+        document.querySelector("#telefone").disabled = false;
+        document.querySelector("#email").disabled = false;
         btnCadastrar.disabled = false;
         btnEditar.disabled = true;
         btnExcluir.disabled = true;

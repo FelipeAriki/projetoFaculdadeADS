@@ -78,8 +78,10 @@ function cadastrarCliente(cliente){
     })
     .then((respostaBackend)=>{
         let flag = '';
-        if(respostaBackend.status)
+        if(respostaBackend.status){
             flag = 'success';
+            obterClientes();
+        }            
         else
             flag = 'danger';
 

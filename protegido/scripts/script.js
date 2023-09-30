@@ -17,12 +17,7 @@ document.querySelector("#btnVoltar").addEventListener("click", ()=>{
     history.back();
 });
 
-document.querySelector("#btnEditar").addEventListener("click", ()=>{
-    alert("Editando o cliente...")
-});
-document.querySelector("#btnExcluir").addEventListener("click", ()=>{
-    alert("Excluindo o cliente...")
-});
+
 //Funções
 function limparFormulario(){
     document.querySelector("#cpf").value = '';
@@ -151,8 +146,8 @@ function mostrarClientes(listaClientes){
                                     <td>${cliente.uf}</td>
                                     <td>${cliente.telefone}</td>
                                     <td>${cliente.email}</td>
-                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', "atualizar")">Editar</button></td>
-                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', "excluir")">Excluir</button></td>`;
+                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', 'atualizar')">Editar</button></td>
+                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', 'excluir')">Excluir</button></td>`;
             corpoTabela.appendChild(linhaTabela);
         }
         tabela.appendChild(corpoTabela);

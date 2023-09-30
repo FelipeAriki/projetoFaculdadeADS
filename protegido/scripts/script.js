@@ -185,6 +185,14 @@ function prepararTela(cpf = "", nome = "", sobrenome = "", endereco = "", bairro
 
     if (acao === "excluir") {
         document.querySelector("#cpf").disabled = true;
+        document.querySelector("#nome").disabled = true;
+        document.querySelector("#sobrenome").disabled = true;
+        document.querySelector("#endereco").disabled = true;
+        document.querySelector("#bairro").disabled = true;
+        document.querySelector("#cidade").disabled = true;
+        document.querySelector("#uf").disabled = true;
+        document.querySelector("#telefone").disabled = true;
+        document.querySelector("#email").disabled = true;
         btnCadastrar.disabled = true;
         btnEditar.disabled = true;
         btnExcluir.disabled = false;

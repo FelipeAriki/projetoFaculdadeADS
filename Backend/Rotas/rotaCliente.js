@@ -5,6 +5,7 @@ const rotaCliente = new Router();
 const clienteCtrl = new ClienteCtrl();
 
 rotaCliente
+.get('/', clienteCtrl.consultar)
 .get('/:termo', clienteCtrl.consultar)
 .post('/', clienteCtrl.gravar)
 .delete('/', clienteCtrl.remover)

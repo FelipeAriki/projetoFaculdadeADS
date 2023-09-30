@@ -1,6 +1,7 @@
 document.querySelector("#btnVoltar").addEventListener("click", ()=>{
     history.back();
 });
+
 window.onload = ()=>{
     obterClientes();
 }

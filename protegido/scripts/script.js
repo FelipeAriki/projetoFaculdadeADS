@@ -7,7 +7,7 @@ document.querySelector("#btnCadastrar").addEventListener("click", ()=>{
     if(form.checkValidity()){
         const cliente = obterClienteFormulario();
         cadastrarCliente(cliente);
-        limparFormulario();
+        prepararTela();
     }
     else
         form.classList.add('was-validated');
@@ -151,8 +151,8 @@ function mostrarClientes(listaClientes){
                                     <td>${cliente.uf}</td>
                                     <td>${cliente.telefone}</td>
                                     <td>${cliente.email}</td>
-                                    <td><button type="button" id="btnEditar">Editar</button></td>
-                                    <td><button type="button" id="btnExcluir">Excluir</button></td>`;
+                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', "atualizar")">Editar</button></td>
+                                    <td><button type="button" onClick="prepararTela('${cliente.cpf}', '${cliente.nome}', '${cliente.sobrenome}', '${cliente.endereco}', '${cliente.bairro}', '${cliente.cidade}', '${cliente.uf}', '${cliente.telefone}', '${cliente.email}', "excluir")">Excluir</button></td>`;
             corpoTabela.appendChild(linhaTabela);
         }
         tabela.appendChild(corpoTabela);
@@ -169,4 +169,37 @@ function mostrarMensagem(mensagem, tipo){
     setTimeout(() => {
         divMensagem.innerHTML = '';
     }, 5000);
+}
+function prepararTela(cpf="", nome="", sobrenome="", endereco="", bairro="", cidade="", uf="", telefone="", email="", acao=""){
+    let btnCadastrar = document.querySelector("#btnCadastrar");
+    let btnEditar = document.querySelector("#btnEditar");
+    let btnExcluir = document.querySelector("#btnExcluir");
+
+    document.querySelector("#cpf").value = cpf;
+    document.querySelector("#nome").value = nome;
+    document.querySelector("#sobrenome").value = sobrenome;
+    document.querySelector("#endereco").value = endereco;
+    document.querySelector("#bairro").value = bairro;
+    document.querySelector("#cidade").value = cidade;
+    document.querySelector("#uf").value = uf;
+    document.querySelector("#telefone").value = telefone;
+    document.querySelector("#email").value = email;
+
+    if(acao === "excluir"){
+        btnCadastrar.disabled = true;
+        btnEditar.disabled = true;
+        btnExcluir.disabled = false;
+    }
+    else if(acao === "atualizar")
+    {
+        btnCadastrar.disabled = true;
+        btnEditar.disabled = false;
+        btnExcluir.disabled = true;
+    }
+    else{//cadastrar
+        btnCadastrar.disabled = false;
+        btnEditar.disabled = true;
+        btnExcluir.disabled = true;
+        limparFormulario();
+    }
 }

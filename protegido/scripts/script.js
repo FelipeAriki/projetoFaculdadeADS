@@ -18,9 +18,42 @@ function obterClientes(){
     .then((listaClientes)=>{
         mostrarClientes(listaClientes);
     })
-    .catch((err)=>{
-        console.log(err);
+    .catch((error)=>{
+        mostrarMensagem('Não foi possível obter os clientes. Erro: ' + error.message, 'danger');
     });
+}
+function cadastrarClientes(cliente){
+    fetch('https://129.146.68.51/aluno25-ppiadsead/clientes',
+    {
+        method: 'POST',
+        headers:{
+            'Content-Type':'application/json'
+        },
+        body: JSON.stringify(cliente)
+    })
+    .then((res)=>{
+        if(res.status === 200)
+            return res.json();
+        else{
+            return{
+                status:false,
+                mensagem:"Oops, Não foi possível realizar o cadastro do cliente!"
+            }
+        }
+    })
+    .then((respostaBackend)=>{
+        let flag = '';
+        if(respostaBackend.status)
+            flag = 'success';
+        else
+            flag = 'danger';
+
+        mostrarMensagem(respostaBackend.mensagem, flag);
+    })
+    .catch((error)=>{
+        mostrarMensagem('Não foi possível realizar o cadastro do cliente. Erro: ' + error.message, 'danger');
+    });
+
 }
 function mostrarClientes(listaClientes){
     let elementoDivTabela = document.querySelector("#espacoTabela");
@@ -64,4 +97,12 @@ function mostrarClientes(listaClientes){
     else{
         elementoDivTabela.innerHTML = `<div class="alert alert-warning" role="alert">Nenhum Cliente Cadastrado!</div>`;
     }
+}
+
+function mostrarMensagem(mensagem, tipo){
+    let divMensagem = document.querySelector("#mensagem");
+    divMensagem.innerHTML = `<div class="alert alert-${tipo}" role="alert">${mensagem}</div>`;
+    setTimeout(() => {
+        divMensagem.innerHTML = '';
+    }, 5000);
 }

@@ -37,9 +37,10 @@ function mostrarClientes(listaClientes){
                                         <th>Sobrenome</th>
                                         <th>Endereco</th>
                                         <th>Bairro</th>
+                                        <th>Cidade</th>
                                         <th>Estado</th>
                                         <th>Telefone</th>
-                                        <th>CEP</th>
+                                        <th>E-mail</th>
                                     </tr>`;
         tabela.appendChild(cabecalhoTabela);
 
@@ -50,9 +51,10 @@ function mostrarClientes(listaClientes){
                                     <td>${cliente.sobrenome}</td>
                                     <td>${cliente.endereco}</td>
                                     <td>${cliente.bairro}</td>
-                                    <td>${cliente.estado}</td>
+                                    <td>${cliente.cidade}</td>
+                                    <td>${cliente.uf}</td>
                                     <td>${cliente.telefone}</td>
-                                    <td>${cliente.cep}</td>`;
+                                    <td>${cliente.email}</td>`;
             corpoTabela.appendChild(linhaTabela);
         }
         tabela.appendChild(corpoTabela);

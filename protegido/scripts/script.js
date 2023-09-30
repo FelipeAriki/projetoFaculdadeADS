@@ -28,6 +28,7 @@ function mostrarClientes(listaClientes){
         //Limpar o elemento divTabela
         elementoDivTabela.innerHTML = '';
         let tabela          = document.createElement('table');
+        tabela.className = 'table table-striped table-hover';
         let cabecalhoTabela = document.createElement('thead');
         let corpoTabela     = document.createElement('tbody')
 

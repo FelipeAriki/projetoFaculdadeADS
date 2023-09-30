@@ -5,7 +5,8 @@ document.querySelector("#btnCadastrar").addEventListener("click", ()=>{
         cadastrarCliente(cliente);
         limparFormulario();
     }
-    form.classList.add('was-validated');
+    else
+        form.classList.add('was-validated');
 });
 
 document.querySelector("#btnVoltar").addEventListener("click", ()=>{

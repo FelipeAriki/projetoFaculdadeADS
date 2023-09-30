@@ -2,7 +2,24 @@ document.querySelector("#btnVoltar").addEventListener("click", ()=>{
     history.back();
 });
 window.onload = ()=>{
-    mostrarClientes([]);
+    obterClientes();
+}
+function obterClientes(){
+    fetch('https://129.146.68.51/aluno25-ppiadsead/clientes', {method: 'GET'})
+    .then((res)=>{
+        if(res.status === 200){
+            return res.json();
+        }
+        else{
+            return [];
+        }
+    })
+    .then((listaClientes)=>{
+        mostrarClientes(listaClientes);
+    })
+    .catch((err)=>{
+        console.log(err);
+    });
 }
 function mostrarClientes(listaClientes){
     let elementoDivTabela = document.querySelector("#espacoTabela");

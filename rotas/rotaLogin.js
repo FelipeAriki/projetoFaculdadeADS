@@ -3,7 +3,7 @@ import { Router } from "express";
 const rotaLogin = Router();
 
 rotaLogin
-.get('/aluno25-ppiadsead', (req, res)=>{
+.get('/', (req, res)=>{
     res.redirect('/aluno25-ppiadsead/login.html');
 })
 .post('/', (req, res)=>{
